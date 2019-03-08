@@ -18,3 +18,9 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.home-landing {
+  background-color: var(--primary-color);
+  color: var(--second-color);
+}
+</style>
