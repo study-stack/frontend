@@ -1,3 +1,8 @@
 {
-  "message": "hello i18n !!"
+  "message": "hello i18n !!",
+  "goods": "Goods",
+  "contacts": "Contacts",
+  "prices": "Prices",
+  "reviews": "Reviews",
+  "news": "News"
 }

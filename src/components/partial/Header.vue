@@ -1,10 +1,18 @@
 <template>
   <header class="c-header">
     <v-container>
-      header
+      <div class="c-header__container">
+        <div class="c-header__logo"></div>
+        <home-nav />
+      </div>
     </v-container>
   </header>
 </template>
 <script>
-export default {};
+import HomeNav from "@/components/shared/HomeNav";
+export default {
+  components: {
+    HomeNav
+  }
+};
 </script>
