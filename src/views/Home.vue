@@ -1,13 +1,14 @@
 <template>
-  <HelloWorld />
+  <home-landing>
+    is home
+  </home-landing>
 </template>
-
 <script>
-import HelloWorld from "../components/HelloWorld";
+import HomeLanding from "@/layouts/HomeLanding";
 
 export default {
   components: {
-    HelloWorld
+    HomeLanding
   }
 };
 </script>
