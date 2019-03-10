@@ -33,14 +33,12 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      component: () =>
-        import( /* */ "./views/Auth/Login.vue")
+      component: () => import(/* */ "./views/Auth/Login.vue")
     },
     {
       path: "/signup",
       name: "signup",
-      component: () =>
-        import( /* */ "./views/Auth/Signup.vue")
+      component: () => import(/* */ "./views/Auth/Signup.vue")
     },
     {
       path: "/profile",
