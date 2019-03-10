@@ -30,6 +30,8 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   &__item {

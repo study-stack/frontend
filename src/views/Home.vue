@@ -1,14 +1,15 @@
 <template>
   <home-landing>
-    is home
+    <welcome-screen />
   </home-landing>
 </template>
 <script>
 import HomeLanding from "@/layouts/HomeLanding";
-
+import WelcomeScreen from "@/components/core/Home/WelcomeScreen";
 export default {
   components: {
-    HomeLanding
+    HomeLanding,
+    WelcomeScreen
   }
 };
 </script>

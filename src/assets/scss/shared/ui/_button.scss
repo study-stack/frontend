@@ -1,3 +1,98 @@
 .button {
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  transition: all .15s ease-in-out;
+  border: 5px solid var(--second-color);
+  font-size: 18px;
+  color: var(--second-color);
+  text-align: center;
+  padding: 12px 15px;
+  min-width: 168px;
+  cursor: pointer;
+  display: block;
+  font-weight: 600;
 
+  &__invers {
+    border: 5px solid var(--third-color);
+    color: var(--third-color);
+
+    &:hover {
+      background-color: var(--third-color);
+      color: var(--second-color)
+    }
+  }
+
+  &__icon {
+    min-width: 209px;
+    padding: 0 0 0 38px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+      background-color: var(--third-color);
+      width: 60px;
+      height: 47px;
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        left: -20px;
+        border-width: 0 0 47px 20px;
+        border-color: transparent transparent var(--third-color) transparent;
+        transition: all .15s ease-in-out;
+      }
+
+      &__container {
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__left, &__rigth {
+        width: 8px;
+        height: 100%;
+        position: relative;
+
+        &::before, &::after {
+          content: "";
+          left: 0;
+          width: 100%;
+          height: 8px;
+          position: absolute;
+          border-radius: 50%;
+          overflow: hidden;
+          background-color: var(--primary-color);
+        }
+
+        &::before {
+          top: 0;
+        }
+
+        &::after {
+          bottom: 0;
+        }
+      }
+    }
+
+
+    &:hover {
+      .icon__left::before, .icon__left::after, .icon__rigth::before, .icon__rigth::after {
+        background-color: var(--second-color);
+      }
+    }
+    
+  }
 }

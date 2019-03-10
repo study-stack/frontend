@@ -1,0 +1,10 @@
+.link {
+  color: var(--second-color);
+  display: block;
+  opacity: 0.8;
+  transition: all .15s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
