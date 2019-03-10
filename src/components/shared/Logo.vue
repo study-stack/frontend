@@ -1,9 +1,11 @@
 <template>
   <div class="logo">
-    <h1 class="logo__main">
-      <span class="pre">std:</span>
-      <div class="post"><i>:</i>stack</div>
-    </h1>
+    <router-link to="/">
+      <h1 class="logo__main">
+        <span class="pre">std:</span>
+        <div class="post"><i>:</i>stack</div>
+      </h1>
+    </router-link>
     <span class="logo__text">learn today grow tomorrow</span>
   </div>
 </template>

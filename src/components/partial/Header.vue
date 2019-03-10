@@ -9,7 +9,7 @@
           <home-nav class="c-header__nav" />
         </div>
         <div class="c-header__controlls">
-          <router-link to="/signup" class="link item">Войти</router-link>
+          <router-link to="/login" class="link item">Войти</router-link>
           <router-link to="/signup" class="button button__invers item"
             >Регистрация</router-link
           >
