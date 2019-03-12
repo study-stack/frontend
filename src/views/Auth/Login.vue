@@ -66,7 +66,10 @@ export default {
       if (!valid) return;
       const query = this.$router.currentRoute.query;
       this.$store
-        .dispatch(AUTH_REQUEST, { username: this.username, password: this.password })
+        .dispatch(AUTH_REQUEST, {
+          username: this.username,
+          password: this.password
+        })
         .then(data => {
           console.log(data);
           // if (query.redirect) {
@@ -75,7 +78,7 @@ export default {
           // }
           // this.$router.go("/profile");
         })
-        .catch((res) => {
+        .catch(res => {
           this.formSuccess = true;
         });
     }
