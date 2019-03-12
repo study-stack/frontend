@@ -29,7 +29,7 @@
                 color="info"
                 class="c-auth__button"
                 type="submit"
-                @click.prevent="create"
+                @click.prevent="auth"
                 :disabled="!valid"
                 >Войти</v-btn
               >
@@ -47,6 +47,7 @@
 </template>
 <script>
 import AuthLayout from "@/layouts/AuthLayout";
+import { AUTH_REQUEST } from "../../store/actions/auth.js";
 export default {
   components: {
     AuthLayout
@@ -63,6 +64,20 @@ export default {
     auth() {
       const valid = this.$refs.form.validate();
       if (!valid) return;
+      const query = this.$router.currentRoute.query;
+      this.$store
+        .dispatch(AUTH_REQUEST, { username: this.username, password: this.password })
+        .then(data => {
+          console.log(data);
+          // if (query.redirect) {
+          //   this.$router.go(query.redirect);
+          //   return;
+          // }
+          // this.$router.go("/profile");
+        })
+        .catch((res) => {
+          this.formSuccess = true;
+        });
     }
   }
 };
