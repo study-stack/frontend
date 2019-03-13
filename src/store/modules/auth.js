@@ -15,6 +15,8 @@ const state = {
   statusCode: ""
 };
 
+const baseURL = "http://localhost:8080";
+
 const getters = {
   isAuthenticated: state => !!state.token,
   authStatus: state => state.status,
@@ -25,35 +27,36 @@ const getters = {
 };
 
 const actions = {
-  [AUTH_REQUEST]: ({ commit, dispatch }, user) => {
+  [AUTH_REQUEST]: ({ commit }, user) => {
     return new Promise((resolve, reject) => {
       const auth = new FormData();
-      auth.set('username', user.username);
-      auth.set('password', user.password);
+      auth.set("username", user.username);
+      auth.set("password", user.password);
       commit(AUTH_REQUEST);
-      axios({ 
-        url: '/oauth/oauth/token',
-        baseURL: 'localhost:8080',
-        data: `password=${user.password}&username=${user.username}`,
+      axios({
+        url: "/oauth/oauth/token",
+        baseURL: baseURL,
+        data: `grant_type=password&password=${user.password}&username=${
+          user.username
+        }`,
         method: "POST",
-        headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ'}
-      }).then(resp => {
-          if (process.env.NODE_ENV === 'development') {
-            console.log(resp);
-            // resp.data.access_token = '123';
-            // resp.data.refresh_token = '2323123';
-            // resp.data.expires_in = '9000'; // вызывает ошибку...
-          }
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: "Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ"
+        }
+      })
+        .then(resp => {
           localStorage.setItem("stack.user-token", resp.data.access_token);
           localStorage.setItem("stack.refresh_token", resp.data.refresh_token);
           localStorage.setItem("stack.expires_in", resp.data.expires_in);
-          axios.defaults.headers.common["Authorization"] = `Bearer ${resp.data.access_token}`;
+          axios.defaults.headers.common["Authorization"] = `Bearer ${
+            resp.data.access_token
+          }`;
           commit(AUTH_SUCCESS, resp);
-          // dispatch(USER_REQUEST);
+          // dispatch(USER_REQUEST); // for get user info in profile
           resolve(resp);
         })
         .catch(err => {
-          console.log(err.response);
           commit(AUTH_ERROR, err);
           localStorage.removeItem("stack.user-token");
           localStorage.removeItem("stack.refresh_token");
@@ -62,11 +65,21 @@ const actions = {
         });
     });
   },
-  [AUTH_LOGOUT]: ({ commit, dispatch }) => {
+  [AUTH_LOGOUT]: ({ commit }) => {
     return new Promise((resolve, reject) => {
       commit(AUTH_LOGOUT);
-      axios({ url: `logout`, method: "GET" })
-        .finally(err => {
+      axios({
+        url: `/logout`,
+        baseURL: baseURL,
+        method: "GET"
+      })
+        .then(() => {
+          resolve();
+        })
+        .catch(() => {
+          reject();
+        })
+        .finally(() => {
           localStorage.removeItem("stack.user-token");
           localStorage.removeItem("stack.refresh_token");
           localStorage.removeItem("stack.expires_in");
@@ -83,9 +96,9 @@ const mutations = {
   },
   [AUTH_SUCCESS]: (state, resp) => {
     state.status = "success";
-    state.token = resp.access_token;
-    state.refresh_token = resp.refresh_token;
-    state.expires_in = resp.expires_in;
+    state.token = resp.data.access_token;
+    state.refresh_token = resp.data.refresh_token;
+    state.expires_in = resp.data.expires_in;
     state.statusCode = resp.status;
   },
   [AUTH_ERROR]: (state, resp) => {

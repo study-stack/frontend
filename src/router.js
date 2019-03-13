@@ -18,7 +18,7 @@ const ifAuthenticated = (to, from, next) => {
     next();
     return;
   }
-  next("/login");
+  next(`/login?redirect=${to.fullPath}`);
 };
 
 export default new Router({
@@ -33,12 +33,14 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      component: () => import(/* */ "./views/Auth/Login.vue")
+      component: () => import(/* */ "./views/Auth/Login.vue"),
+      beforeEnter: ifNotAuthenticated
     },
     {
       path: "/signup",
       name: "signup",
-      component: () => import(/* */ "./views/Auth/Signup.vue")
+      component: () => import(/* */ "./views/Auth/Signup.vue"),
+      beforeEnter: ifNotAuthenticated
     },
     {
       path: "/profile",
@@ -47,7 +49,8 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Profile.vue")
+        import(/* webpackChunkName: "about" */ "./views/Profile.vue"),
+      beforeEnter: ifAuthenticated
     }
   ]
 });

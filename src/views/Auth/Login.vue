@@ -48,6 +48,7 @@
 <script>
 import AuthLayout from "@/layouts/AuthLayout";
 import { AUTH_REQUEST } from "../../store/actions/auth.js";
+
 export default {
   components: {
     AuthLayout
@@ -71,15 +72,15 @@ export default {
           password: this.password
         })
         .then(data => {
-          console.log(data);
-          // if (query.redirect) {
-          //   this.$router.go(query.redirect);
-          //   return;
-          // }
-          // this.$router.go("/profile");
+          if (query.redirect) {
+            this.$router.push({ path: query.redirect });
+            return;
+          }
+          this.$router.push({ path: "/profile" });
         })
-        .catch(res => {
-          this.formSuccess = true;
+        .catch(err => {
+          if (err.response.status === 400) {
+          }
         });
     }
   }
