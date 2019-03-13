@@ -46,9 +46,7 @@ const actions = {
         });
     });
   },
-  [GET_COURSE]: ({ dispatch, commit }) => {
-
-  }
+  [GET_COURSE]: ({ dispatch, commit }) => {}
 };
 
 const mutations = {

@@ -9,7 +9,7 @@ import axios from "axios";
 
 const token = localStorage.getItem("stack.user-token");
 if (token) {
-  axios.defaults.headers.common["Authorization"] = token;
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 }
 
 Vue.filter("decnum", (number, titles) => {
