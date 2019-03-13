@@ -9,8 +9,16 @@
           <home-nav class="c-header__nav" />
         </div>
         <div class="c-header__controlls">
-          <router-link to="/login" class="link item">Войти</router-link>
-          <router-link to="/signup" class="button button__invers item"
+          <router-link to="/profile" class="link item" v-if="auth"
+            >Кабинет</router-link
+          >
+          <router-link to="/login" class="link item" v-if="!auth"
+            >Войти</router-link
+          >
+          <router-link
+            to="/signup"
+            class="button button__invers item"
+            v-if="!auth"
             >Регистрация</router-link
           >
         </div>
@@ -25,6 +33,11 @@ export default {
   components: {
     HomeNav,
     Logo
+  },
+  computed: {
+    auth() {
+      return this.$store.getters.isAuthenticated;
+    }
   }
 };
 </script>
