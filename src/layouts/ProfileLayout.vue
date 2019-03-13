@@ -1,8 +1,6 @@
 <template>
   <div class="profile-page page page__full">
-    <aside class="profile-sidebar">
-      is sidebar
-    </aside>
+    <profile-sidebar />
     <section class="profile-page__container">
       <profile-header />
       <main class="profile-page__content">
@@ -13,10 +11,12 @@
 </template>
 <script>
 import ProfileHeader from "@/components/partial/ProfileHeader";
+import ProfileSidebar from "@/components/shared/ProfileSidebar";
 
 export default {
   components: {
-    ProfileHeader
+    ProfileHeader,
+    ProfileSidebar
   }
 };
 </script>
@@ -32,15 +32,5 @@ export default {
   &__content {
     padding: 60px 30px;
   }
-}
-
-.profile-sidebar {
-  width: var(--sidebar-width);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background-color: var(--primary-second);
-  height: 100%;
 }
 </style>

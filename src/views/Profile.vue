@@ -1,8 +1,6 @@
 <template>
   <profile-layout>
-    <div class="">
-      is profile
-    </div>
+    <router-view />
   </profile-layout>
 </template>
 <script>
@@ -11,10 +9,6 @@ import ProfileLayout from "@/layouts/ProfileLayout";
 export default {
   components: {
     ProfileLayout
-  },
-  data() {
-    return {};
-  },
-  methods: {}
+  }
 };
 </script>
