@@ -1,5 +1,20 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <profile-layout>
+    <div class="">
+      is profile
+    </div>
+  </profile-layout>
 </template>
+<script>
+import ProfileLayout from "@/layouts/ProfileLayout";
+
+export default {
+  components: {
+    ProfileLayout
+  },
+  data() {
+    return {};
+  },
+  methods: {}
+};
+</script>
