@@ -49,8 +49,9 @@ export default {
     border-bottom: 1px solid #34414c;
     border-right: 1px solid #34414c;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-left: 30px;
   }
 
   &__section {
