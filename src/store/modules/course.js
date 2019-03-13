@@ -18,7 +18,8 @@ const baseURL = "http://localhost:8080";
 
 const getters = {
   coursesLoading: state => state.loading,
-  getCourses: state => state.courses
+  getCourses: state => state.courses,
+  getCourse: state => state.course
 };
 
 const actions = {
@@ -46,12 +47,38 @@ const actions = {
         });
     });
   },
-  [GET_COURSE]: ({ dispatch, commit }) => {}
+  [GET_COURSE]: ({ dispatch, commit }, id) => {
+    commit(COURSE_REQUEST);
+    return new Promise((resolve, reject) => {
+      axios({
+        url: `/courses/api/courses/${id}`,
+        baseURL: baseURL,
+        method: "GET"
+      })
+        .then(res => {
+          if (res.status === 200) {
+            resolve(res);
+            commit(COURSE_SUCCESS);
+            commit(GET_COURSE, res.data);
+          }
+        })
+        .catch(err => {
+          reject(err);
+          commit(COURSE_ERROR);
+          if (err.response.status === 401) {
+            dispatch(AUTH_LOGOUT);
+          }
+        });
+    });
+  }
 };
 
 const mutations = {
   [GET_COURSES]: (state, courses) => {
     state.courses = courses;
+  },
+  [GET_COURSE]: (state, course) => {
+    state.course = course;
   },
   [COURSE_REQUEST]: state => {
     state.loading = true;
