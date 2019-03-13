@@ -5,6 +5,7 @@ import {
   AUTH_LOGOUT
 } from "../actions/auth";
 import axios from "axios";
+import router from "../../router";
 
 const state = {
   token: localStorage.getItem("stack.user-token") || "",
@@ -84,7 +85,8 @@ const actions = {
           localStorage.removeItem("stack.refresh_token");
           localStorage.removeItem("stack.expires_in");
           delete axios.defaults.headers.common["Authorization"];
-          resolve();
+
+          router.push(`/login?redirect=${router.currentRoute.fullPath}`);
         });
     });
   }
