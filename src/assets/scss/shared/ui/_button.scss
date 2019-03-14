@@ -12,16 +12,7 @@
   cursor: pointer;
   display: block;
   font-weight: 600;
-
-  &__invers {
-    border: 5px solid var(--third-color);
-    color: var(--third-color);
-
-    &:hover {
-      background-color: var(--third-color);
-      color: var(--second-color)
-    }
-  }
+  position: relative;
 
   &__icon {
     min-width: 209px;
@@ -32,7 +23,7 @@
     align-items: center;
 
     .icon {
-      background-color: var(--third-color);
+      background-color: var(--second-color);
       width: 60px;
       height: 47px;
       display: flex;
@@ -48,7 +39,7 @@
         border-style: solid;
         left: -20px;
         border-width: 0 0 47px 20px;
-        border-color: transparent transparent var(--third-color) transparent;
+        border-color: transparent transparent var(--second-color) transparent;
         transition: all .15s ease-in-out;
       }
 
@@ -85,14 +76,40 @@
           bottom: 0;
         }
       }
+    } 
+  }
+
+  &:hover {
+    background-color: var(--second-color);
+    color: var(--primary-color);
+    
+    .icon__left::before, .icon__left::after, .icon__rigth::before, .icon__rigth::after {
+      background-color: var(--primary-color);
+    }
+  }
+
+
+
+  &__invers {
+    border: 5px solid var(--third-color);
+    color: var(--third-color);
+
+    .icon {
+      background-color: var(--third-color);
+
+      &::before {
+        border-color: transparent transparent var(--third-color) transparent;
+      }
     }
 
-
     &:hover {
+      background-color: var(--third-color);
+      color: var(--second-color);
+
       .icon__left::before, .icon__left::after, .icon__rigth::before, .icon__rigth::after {
         background-color: var(--second-color);
       }
     }
-    
   }
+
 }
