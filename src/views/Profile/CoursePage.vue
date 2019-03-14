@@ -1,11 +1,32 @@
 <template>
   <div class="course-page">
-    <p>{{ course.name }}</p>
-    <p>{{ course.description }}</p>
+    <page-with-preview>
+      <template slot="head-left">
+        <h2 class="title">{{ course.name }}</h2>
+        <ul class="list">
+          <li class="list-item" v-for="(item, i) in course.skills" :key="i">
+            {{ item }}
+          </li>
+        </ul>
+      </template>
+      <template slot="head-right">
+        <custom-button title="Начать" />
+      </template>
+      <template slot="content">
+        <div class="course-page__content">
+          <div class="field">
+            <p class="key">Описание курса</p>
+            <p class="value">{{ course.description }}</p>
+          </div>
+        </div>
+      </template>
+    </page-with-preview>
   </div>
 </template>
 <script>
 import { GET_COURSE } from "@/store/actions/course.js";
+import PageWithPreview from "@/components/shared/Sections/PageWithPreview";
+import CustomButton from "@/components/shared/ui/CustomButton";
 
 export default {
   data() {
@@ -13,7 +34,10 @@ export default {
       id: null
     };
   },
-  components: {},
+  components: {
+    PageWithPreview,
+    CustomButton
+  },
   computed: {
     loading() {
       return this.$store.getters.coursesLoading;
@@ -30,8 +54,33 @@ export default {
 </script>
 <style lang="scss" scoped>
 .course-page {
-  p {
+  margin: -60px -30px;
+
+  .field {
     margin: 15px 0;
+
+    .key {
+      font-size: 22px;
+    }
+
+    .value {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 5px 0;
+      font-weight: 300;
+    }
+  }
+
+  .list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 10px -8px 0;
+
+    &-item {
+      margin: 0 8px;
+      font-weight: 300;
+    }
   }
 }
 </style>
