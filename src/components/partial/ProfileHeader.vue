@@ -1,5 +1,5 @@
 <template>
-  <header class="c-profile-header">
+  <header :class="{ 'c-profile-header': true }">
     <div class="c-profile-header__container">
       <div class="c-profile-header__left"></div>
       <div class="c-profile-header__right">

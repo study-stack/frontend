@@ -9,6 +9,9 @@ import ProfileLayout from "@/layouts/ProfileLayout";
 export default {
   components: {
     ProfileLayout
+  },
+  created() {
+    this.$store.dispatch("UPDATE_SIDEBAR", "large");
   }
 };
 </script>

@@ -57,6 +57,11 @@ export default new Router({
           path: "/profile/courses/:id",
           name: "profile.courses_page",
           component: () => import(/* */ "./views/Profile/CoursePage.vue")
+        },
+        {
+          path: "/profile/courses/:id/page/:page",
+          name: "profile.courses_page_number",
+          component: () => import(/* */ "./views/Profile/CourseView.vue")
         }
       ],
       beforeEnter: ifAuthenticated

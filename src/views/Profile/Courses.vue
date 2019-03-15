@@ -31,8 +31,9 @@ export default {
       return this.$store.getters.getCourses;
     }
   },
-  mounted() {
+  created() {
     this.$store.dispatch(GET_COURSES);
+    this.$store.dispatch("UPDATE_SIDEBAR", "large");
   }
 };
 </script>

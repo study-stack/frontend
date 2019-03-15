@@ -10,7 +10,16 @@
         </ul>
       </template>
       <template slot="head-right">
-        <custom-button title="Начать" />
+        <custom-button
+          :link="`${course.id}/page/1`"
+          title="Начать"
+          v-if="!course.currentStep"
+        />
+        <custom-button
+          :link="`${course.id}/page/${course.currentStep}`"
+          title="Продолжить"
+          v-if="course.currentStep"
+        />
       </template>
       <template slot="content">
         <div class="course-page__content">
@@ -49,6 +58,7 @@ export default {
   created() {
     this.id = this.$router.currentRoute.params.id;
     this.$store.dispatch(GET_COURSE, this.id);
+    this.$store.dispatch("UPDATE_SIDEBAR", "large");
   }
 };
 </script>

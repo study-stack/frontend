@@ -1,5 +1,5 @@
 <template>
-  <aside class="profile-sidebar">
+  <aside :class="{ 'profile-sidebar': true, small: sidebarIsSmall }">
     <div class="profile-sidebar__head">
       <Logo />
     </div>
@@ -31,10 +31,15 @@ import Logo from "@/components/shared/Logo";
 export default {
   components: {
     Logo
+  },
+  computed: {
+    sidebarIsSmall() {
+      return this.$store.getters.getSidebarIsSmall;
+    }
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .profile-sidebar {
   width: var(--sidebar-width);
   position: fixed;
@@ -43,6 +48,8 @@ export default {
   bottom: 0;
   background-color: var(--primary-second);
   height: 100%;
+  overflow: hidden;
+  transition: all 0.15s ease-in-out;
 
   &__head {
     height: 80px;
@@ -63,6 +70,36 @@ export default {
     font-weight: 300;
     margin: 0 10px 20px 30px;
   }
+
+  &.small {
+    width: calc(var(--sidebar-width) - 200px);
+
+    .profile-sidebar__head {
+      padding-left: 0;
+      display: flex;
+      justify-content: center;
+
+      .logo {
+        .pre,
+        .logo__text,
+        .post i {
+          display: none;
+        }
+      }
+    }
+
+    .profile-sidebar__title {
+      opacity: 0;
+    }
+
+    .profile-sidebar-nav {
+      &__link {
+        .text {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .profile-sidebar-nav {
@@ -81,6 +118,7 @@ export default {
     padding: 10px 10px 10px 30px;
     transition: all 0.15s ease-in-out;
     position: relative;
+    white-space: nowrap;
 
     span {
       display: block;

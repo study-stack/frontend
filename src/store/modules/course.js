@@ -74,28 +74,28 @@ const actions = {
       //   id: "1",
       //   name: "Title",
       //   description: "Description",
-      //   skills: ['Java experience', 'java core development'],
-      //   prerequisite: ['Spring', 'Java', 'git'],
+      //   skills: ["Java experience", "java core development"],
+      //   prerequisite: ["Spring", "Java", "git"],
       //   steps: [
       //     {
       //       id: 1,
-      //       title: 'Title Java Spring Project',
-      //       shortDescription: 'learn java together',
+      //       title: "Title Java Spring Project",
+      //       shortDescription: "learn java together"
       //     },
       //     {
       //       id: 2,
-      //       title: 'Title Java Spring Project',
-      //       shortDescription: 'learn java together',
+      //       title: "Title Java Spring Project",
+      //       shortDescription: "learn java together"
       //     },
       //     {
       //       id: 3,
-      //       title: 'Title Java Spring Project',
-      //       shortDescription: 'learn java together',
+      //       title: "Title Java Spring Project",
+      //       shortDescription: "learn java together"
       //     },
       //     {
       //       id: 4,
-      //       title: 'Title Java Spring Project',
-      //       shortDescription: 'learn java together',
+      //       title: "Title Java Spring Project",
+      //       shortDescription: "learn java together"
       //     }
       //   ]
       // });

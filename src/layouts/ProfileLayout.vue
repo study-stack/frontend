@@ -1,9 +1,11 @@
 <template>
   <div class="profile-page page page__full">
     <profile-sidebar />
-    <section class="profile-page__container">
+    <section
+      :class="{ 'profile-page__container': true, 'full-width': sidebarIsSmall }"
+    >
       <profile-header />
-      <main class="profile-page__content">
+      <main :class="{ 'profile-page__content': true }">
         <slot></slot>
       </main>
     </section>
@@ -17,6 +19,14 @@ export default {
   components: {
     ProfileHeader,
     ProfileSidebar
+  },
+  computed: {
+    sidebarIsSmall() {
+      return this.$store.getters.getSidebarIsSmall;
+    }
+  },
+  created() {
+    this.$store.dispatch("UPDATE_SIDEBAR", "large");
   }
 };
 </script>
@@ -27,6 +37,11 @@ export default {
 
   &__container {
     margin-left: var(--sidebar-width);
+    transition: all 0.15s ease-in-out;
+
+    &.full-width {
+      margin-left: calc(var(--sidebar-width) - 200px);
+    }
   }
 
   &__content {
