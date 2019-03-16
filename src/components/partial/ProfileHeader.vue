@@ -1,7 +1,13 @@
 <template>
   <header :class="{ 'c-profile-header': true }">
     <div class="c-profile-header__container">
-      <div class="c-profile-header__left"></div>
+      <div class="c-profile-header__left">
+        <div class="c-profile-header__back" v-if="headerBack">
+          <router-link :to="headerBack.link">
+            <font-awesome-icon :icon="['fa', 'arrow-left']" />
+          </router-link>
+        </div>
+      </div>
       <div class="c-profile-header__right">
         <aside :class="{ profile: true, open: isOpen }">
           <div class="profile-head" @click="dropdown">
@@ -53,6 +59,11 @@ export default {
       nav: [{ link: "/profile", name: "Профиль" }]
     };
   },
+  computed: {
+    headerBack() {
+      return this.$store.getters.getHeaderBack;
+    }
+  },
   methods: {
     dropdown() {
       this.isOpen = !this.isOpen;
@@ -73,6 +84,15 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__back a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    color: #fff;
+    opacity: 1;
   }
 }
 
