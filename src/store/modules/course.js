@@ -3,7 +3,8 @@ import {
   GET_COURSE,
   COURSE_ERROR,
   COURSE_REQUEST,
-  COURSE_SUCCESS
+  COURSE_SUCCESS,
+  GET_COURSE_STEP
 } from "../actions/course";
 import { AUTH_LOGOUT } from "../actions/auth";
 import axios from "axios";
@@ -11,7 +12,8 @@ import axios from "axios";
 const state = {
   loading: false,
   courses: [],
-  course: {}
+  course: {},
+  courseStep: {}
 };
 
 const baseURL = "http://localhost:8080";
@@ -19,10 +21,41 @@ const baseURL = "http://localhost:8080";
 const getters = {
   coursesLoading: state => state.loading,
   getCourses: state => state.courses,
-  getCourse: state => state.course
+  getCourse: state => state.course,
+  getCourseStep: state => state.courseStep
 };
 
 const actions = {
+  [GET_COURSE_STEP]: ({ dispatch, commit }) => {
+    return new Promise((resolve, reject) => {
+      // axios({
+      //   url: `/courses/api/courses/${id}`,
+      //   baseURL: baseURL,
+      //   method: "GET"
+      // })
+      //   .then(res => {
+      //     if (res.status === 200) {
+      //       resolve(res);
+      //       commit(COURSE_SUCCESS);
+      //       commit(GET_COURSE, res.data);
+      //     }
+      //   })
+      //   .catch(err => {
+      //     reject(err);
+      //     commit(COURSE_ERROR);
+      //     if (err.response.status === 401) {
+      //       dispatch(AUTH_LOGOUT);
+      //     }
+      //   });
+
+      commit(GET_COURSE_STEP,
+        {
+          id: 1,
+          title: "Title Java Spring Project",
+          shortDescription: "learn java together"
+        });
+    });
+  },
   [GET_COURSES]: ({ dispatch, commit }) => {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
@@ -50,60 +83,63 @@ const actions = {
   [GET_COURSE]: ({ dispatch, commit }, id) => {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
-      axios({
-        url: `/courses/api/courses/${id}`,
-        baseURL: baseURL,
-        method: "GET"
-      })
-        .then(res => {
-          if (res.status === 200) {
-            resolve(res);
-            commit(COURSE_SUCCESS);
-            commit(GET_COURSE, res.data);
-          }
-        })
-        .catch(err => {
-          reject(err);
-          commit(COURSE_ERROR);
-          if (err.response.status === 401) {
-            dispatch(AUTH_LOGOUT);
-          }
-        });
-
-      // commit(GET_COURSE, {
-      //   id: "1",
-      //   name: "Title",
-      //   description: "Description",
-      //   skills: ["Java experience", "java core development"],
-      //   prerequisite: ["Spring", "Java", "git"],
-      //   steps: [
-      //     {
-      //       id: 1,
-      //       title: "Title Java Spring Project",
-      //       shortDescription: "learn java together"
-      //     },
-      //     {
-      //       id: 2,
-      //       title: "Title Java Spring Project",
-      //       shortDescription: "learn java together"
-      //     },
-      //     {
-      //       id: 3,
-      //       title: "Title Java Spring Project",
-      //       shortDescription: "learn java together"
-      //     },
-      //     {
-      //       id: 4,
-      //       title: "Title Java Spring Project",
-      //       shortDescription: "learn java together"
+      // axios({
+      //   url: `/courses/api/courses/${id}`,
+      //   baseURL: baseURL,
+      //   method: "GET"
+      // })
+      //   .then(res => {
+      //     if (res.status === 200) {
+      //       resolve(res);
+      //       commit(COURSE_SUCCESS);
+      //       commit(GET_COURSE, res.data);
       //     }
-      //   ]
-      // });
+      //   })
+      //   .catch(err => {
+      //     reject(err);
+      //     commit(COURSE_ERROR);
+      //     if (err.response.status === 401) {
+      //       dispatch(AUTH_LOGOUT);
+      //     }
+      //   });
+
+      commit(GET_COURSE, {
+        id: "1",
+        name: "Title",
+        description: "Description",
+        skills: ["Java experience", "java core development"],
+        prerequisite: ["Spring", "Java", "git"],
+        steps: [
+          {
+            id: 1,
+            title: "Title Java Spring Project",
+            shortDescription: "learn java together"
+          },
+          {
+            id: 2,
+            title: "Title Java Spring Project",
+            shortDescription: "learn java together"
+          },
+          {
+            id: 3,
+            title: "Title Java Spring Project",
+            shortDescription: "learn java together"
+          },
+          {
+            id: 4,
+            title: "Title Java Spring Project",
+            shortDescription: "learn java together"
+          }
+        ]
+      });
     });
   }
 };
 
 const mutations = {
+  [GET_COURSE_STEP]: (state, step) => {
+    state.courseStep = step;
+  },
   [GET_COURSES]: (state, courses) => {
     state.courses = courses;
   },
