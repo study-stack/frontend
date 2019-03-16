@@ -11,6 +11,7 @@ export default {
     ProfileLayout
   },
   created() {
+    this.$store.dispatch("UPDATE_HEADER_BACK", null);
     this.$store.dispatch("UPDATE_SIDEBAR", "large");
   }
 };

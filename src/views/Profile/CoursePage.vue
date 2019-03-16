@@ -56,6 +56,7 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("UPDATE_HEADER_BACK", null);
     this.id = this.$router.currentRoute.params.id;
     this.$store.dispatch(GET_COURSE, this.id);
     this.$store.dispatch("UPDATE_SIDEBAR", "large");

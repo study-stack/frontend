@@ -33,6 +33,7 @@ export default {
   },
   created() {
     this.$store.dispatch(GET_COURSES);
+    this.$store.dispatch("UPDATE_HEADER_BACK", null);
     this.$store.dispatch("UPDATE_SIDEBAR", "large");
   }
 };
