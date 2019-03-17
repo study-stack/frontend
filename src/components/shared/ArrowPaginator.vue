@@ -50,6 +50,8 @@ export default {
     width: 90px;
     display: block;
     text-align: center;
+    font-size: 24px;
+    line-height: 1;
   }
 }
 </style>
