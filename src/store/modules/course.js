@@ -51,6 +51,26 @@ const courseMock = {
       id: 4,
       title: "Title Java Spring Project 4",
       shortDescription: "4 learn java together"
+    },
+    {
+      id: 5,
+      title: "Title Java Spring Project 1",
+      shortDescription: "1 learn java together"
+    },
+    {
+      id: 6,
+      title: "Title Java Spring Project 2",
+      shortDescription: "2 learn java together"
+    },
+    {
+      id: 7,
+      title: "Title Java Spring Project 3",
+      shortDescription: "3 learn java together"
+    },
+    {
+      id: 8,
+      title: "Title Java Spring Project 4",
+      shortDescription: "4 learn java together"
     }
   ]
 }
