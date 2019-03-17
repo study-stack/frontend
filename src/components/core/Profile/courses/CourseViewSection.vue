@@ -166,8 +166,9 @@ export default {
     border-radius: 4px;
 
     .title {
-      font-size: 32px !important;
+      font-size: 42px !important;
       line-height: 1.3;
+      color: var(--purr-color);
     }
 
     .top {
@@ -250,7 +251,7 @@ export default {
 
       &.success {
         background-color: transparent;
-        
+
         &::before {
           opacity: .6;
           background-color: var(--success-color);
