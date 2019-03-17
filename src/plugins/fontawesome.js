@@ -5,13 +5,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngleDown,
   faBook,
-  faArrowLeft
+  faArrowLeft,
+  faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faAngleDown,
   faBook,
-  faArrowLeft
+  faArrowLeft,
+  faArrowRight
 );
 
 Vue.component(FontAwesomeIcon.name, FontAwesomeIcon);
