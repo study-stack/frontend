@@ -25,8 +25,37 @@ const getters = {
   getCourseStep: state => state.courseStep
 };
 
+const courseMock = {
+  id: "1",
+  name: "Title",
+  description: "Description",
+  skills: ["Java experience", "java core development"],
+  prerequisite: ["Spring", "Java", "git"],
+  steps: [
+    {
+      id: 1,
+      title: "Title Java Spring Project 1",
+      shortDescription: "1 learn java together"
+    },
+    {
+      id: 2,
+      title: "Title Java Spring Project 2",
+      shortDescription: "2 learn java together"
+    },
+    {
+      id: 3,
+      title: "Title Java Spring Project 3",
+      shortDescription: "3 learn java together"
+    },
+    {
+      id: 4,
+      title: "Title Java Spring Project 4",
+      shortDescription: "4 learn java together"
+    }
+  ]
+}
 const actions = {
-  [GET_COURSE_STEP]: ({ dispatch, commit }) => {
+  [GET_COURSE_STEP]: ({ dispatch, commit }, id) => {
     return new Promise((resolve, reject) => {
       // axios({
       //   url: `/courses/api/courses/${id}`,
@@ -47,13 +76,8 @@ const actions = {
       //       dispatch(AUTH_LOGOUT);
       //     }
       //   });
-
-      commit(GET_COURSE_STEP,
-        {
-          id: 1,
-          title: "Title Java Spring Project",
-          shortDescription: "learn java together"
-        });
+      const step = courseMock.steps.filter(item => item.id === id);
+      commit(GET_COURSE_STEP, step[0]);
     });
   },
   [GET_COURSES]: ({ dispatch, commit }) => {
@@ -104,33 +128,7 @@ const actions = {
       //   });
 
       commit(GET_COURSE, {
-        id: "1",
-        name: "Title",
-        description: "Description",
-        skills: ["Java experience", "java core development"],
-        prerequisite: ["Spring", "Java", "git"],
-        steps: [
-          {
-            id: 1,
-            title: "Title Java Spring Project",
-            shortDescription: "learn java together"
-          },
-          {
-            id: 2,
-            title: "Title Java Spring Project",
-            shortDescription: "learn java together"
-          },
-          {
-            id: 3,
-            title: "Title Java Spring Project",
-            shortDescription: "learn java together"
-          },
-          {
-            id: 4,
-            title: "Title Java Spring Project",
-            shortDescription: "learn java together"
-          }
-        ]
+        ...courseMock
       });
     });
   }
