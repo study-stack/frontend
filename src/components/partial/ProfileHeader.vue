@@ -91,7 +91,7 @@ export default {
     align-items: center;
     justify-content: flex-start;
     cursor: pointer;
-    color: #fff;
+    color: var(--second-color);
     opacity: 1;
   }
 }

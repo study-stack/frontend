@@ -1,0 +1,16 @@
+.simple-button {
+  background-color: var(--success-color);
+  color: var(--second-color);
+  font-weight: 600;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  transition: all .15s ease-in-out;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &:disabled {
+    opacity: .6;
+  }
+}
