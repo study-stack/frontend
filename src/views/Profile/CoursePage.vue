@@ -1,6 +1,6 @@
 <template>
   <div class="course-page">
-    <page-with-preview>
+    <page-with-preview v-if="course">
       <template slot="head-left">
         <h2 class="title">{{ course.name }}</h2>
         <ul class="list">
@@ -16,7 +16,7 @@
           v-if="!course.currentStep"
         />
         <custom-button
-          :link="`${course.id}/page/${course.currentStep}`"
+          :link="`${course.id}/page/${course.currentStep.id}`"
           title="Продолжить"
           v-if="course.currentStep"
         />
