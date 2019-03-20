@@ -4,7 +4,8 @@ import {
   COURSE_ERROR,
   COURSE_REQUEST,
   COURSE_SUCCESS,
-  GET_COURSE_STEP
+  GET_COURSE_STEP,
+  NEXT_COURSE_STEP
 } from "../actions/course";
 import { AUTH_LOGOUT } from "../actions/auth";
 import axios from "axios";
@@ -12,8 +13,8 @@ import axios from "axios";
 const state = {
   loading: false,
   courses: [],
-  course: {},
-  courseStep: {}
+  course: null,
+  courseStep: null
 };
 
 const baseURL = "http://localhost:8080";
@@ -75,29 +76,54 @@ const courseMock = {
   ]
 }
 const actions = {
+  [NEXT_COURSE_STEP]: ({ dispatch, commit }, id) => {
+    return new Promise((resolve, reject) => {
+      axios({
+        url: `/courses/api/courses/${id}/next`,
+        baseURL: baseURL,
+        method: "POST"
+      })
+        .then(res => {
+          if (res.status === 200) {
+            resolve(res);
+            commit(COURSE_SUCCESS);
+            commit(GET_COURSE_STEP, res.data);
+          }
+        })
+        .catch(err => {
+          reject(err);
+          commit(COURSE_ERROR);
+          if (err.response.status === 401) {
+            dispatch(AUTH_LOGOUT);
+          }
+        });
+      // const step = courseMock.steps.filter(item => item.id === id);
+      // commit(GET_COURSE_STEP, step[0]);
+    });
+  },
   [GET_COURSE_STEP]: ({ dispatch, commit }, id) => {
     return new Promise((resolve, reject) => {
-      // axios({
-      //   url: `/courses/api/courses/${id}`,
-      //   baseURL: baseURL,
-      //   method: "GET"
-      // })
-      //   .then(res => {
-      //     if (res.status === 200) {
-      //       resolve(res);
-      //       commit(COURSE_SUCCESS);
-      //       commit(GET_COURSE, res.data);
-      //     }
-      //   })
-      //   .catch(err => {
-      //     reject(err);
-      //     commit(COURSE_ERROR);
-      //     if (err.response.status === 401) {
-      //       dispatch(AUTH_LOGOUT);
-      //     }
-      //   });
-      const step = courseMock.steps.filter(item => item.id === id);
-      commit(GET_COURSE_STEP, step[0]);
+      axios({
+        url: `/courses/api/courses/${id}`,
+        baseURL: baseURL,
+        method: "POST"
+      })
+        .then(res => {
+          if (res.status === 200) {
+            resolve(res);
+            commit(COURSE_SUCCESS);
+            commit(GET_COURSE_STEP, res.data);
+          }
+        })
+        .catch(err => {
+          reject(err);
+          commit(COURSE_ERROR);
+          if (err.response.status === 401) {
+            dispatch(AUTH_LOGOUT);
+          }
+        });
+      // const step = courseMock.steps.filter(item => item.id === id);
+      // commit(GET_COURSE_STEP, step[0]);
     });
   },
   [GET_COURSES]: ({ dispatch, commit }) => {
@@ -127,29 +153,29 @@ const actions = {
   [GET_COURSE]: ({ dispatch, commit }, id) => {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
-      // axios({
-      //   url: `/courses/api/courses/${id}`,
-      //   baseURL: baseURL,
-      //   method: "GET"
-      // })
-      //   .then(res => {
-      //     if (res.status === 200) {
-      //       resolve(res);
-      //       commit(COURSE_SUCCESS);
-      //       commit(GET_COURSE, res.data);
-      //     }
-      //   })
-      //   .catch(err => {
-      //     reject(err);
-      //     commit(COURSE_ERROR);
-      //     if (err.response.status === 401) {
-      //       dispatch(AUTH_LOGOUT);
-      //     }
-      //   });
+      axios({
+        url: `/courses/api/courses/${id}`,
+        baseURL: baseURL,
+        method: "GET"
+      })
+        .then(res => {
+          if (res.status === 200) {
+            resolve(res);
+            commit(COURSE_SUCCESS);
+            commit(GET_COURSE, res.data);
+          }
+        })
+        .catch(err => {
+          reject(err);
+          commit(COURSE_ERROR);
+          if (err.response.status === 401) {
+            dispatch(AUTH_LOGOUT);
+          }
+        });
 
-      commit(GET_COURSE, {
-        ...courseMock
-      });
+      // commit(GET_COURSE, {
+      //   ...courseMock
+      // });
     });
   }
 };
