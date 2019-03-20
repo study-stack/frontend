@@ -75,5 +75,11 @@
       margin: 0;
     }
   }
+
+  @media only screen and (min-width: 1904px) {
+    &__container {
+      align-items: center;
+    }
+  }
 }
 </style>

@@ -1,10 +1,14 @@
 <template>
   <div class="course-view-page">
-    <course-view-section :page="page" :content="courseStep" :course="course" @updatePage="updatePage" />
+    <course-view-section :page="page" :content="courseStep" :course="course" @updatePage="updatePage" v-if="courseStep && course && !loading" />
   </div>
 </template>
 <script>
-import { GET_COURSE_STEP, GET_COURSE } from "@/store/actions/course.js";
+import {
+  GET_COURSE_STEP,
+  GET_COURSE,
+  NEXT_COURSE_STEP
+} from "@/store/actions/course.js";
 import CourseViewSection from "@/components/core/Profile/courses/CourseViewSection";
 
 export default {
@@ -23,9 +27,12 @@ export default {
     },
     course() {
       return this.$store.getters.getCourse;
+    },
+    loading() {
+      return this.$store.getters.coursesLoading;
     }
   },
-  created() {
+  mounted() {
     this.init();
   },
   methods: {
@@ -33,15 +40,23 @@ export default {
       this.$store.dispatch("UPDATE_SIDEBAR", "small");
       this.id = parseInt(this.$router.currentRoute.params.id);
       this.page = parseInt(this.$router.currentRoute.params.page);
-      if (!this.course.id) {
-        this.$store.dispatch(GET_COURSE, this.id);
+      if (!this.course) {
+        this.$store.dispatch(GET_COURSE, this.id).then(() => {
+
+          this.$store.dispatch(GET_COURSE_STEP, this.id).then(res => {
+            this.$router.push(`/profile/courses/${this.id}/page/${this.courseStep.id}`);
+          });
+        });
       }
       this.$store.dispatch("UPDATE_HEADER_BACK", {link: `/profile/courses/${this.id}`});
-      this.$store.dispatch(GET_COURSE_STEP, this.page);
     },
     updatePage(data) {
-      this.$router.push(`/profile/courses/${this.id}/page/${data}`);
-      this.init();
+      if (data.type === 'next') {
+        this.$store.dispatch(NEXT_COURSE_STEP, this.id).then(() => {
+          this.$router.push(`/profile/courses/${this.id}/page/${this.courseStep.id}`);
+          this.init();
+        });
+      }
     }
   }
 };
