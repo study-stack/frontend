@@ -4,12 +4,10 @@
       <div class="top">
         <template v-if="content">
           <div class="course-view__container">
-            <div class="number">
-              {{content.id}}.
-            </div>
+            <div class="number">{{ content.id }}.</div>
             <div class="content">
-              <h2 class="title">{{content.title}}</h2>
-              <p class="description">{{content.shortDescription}}</p>
+              <h2 class="title">{{ content.title }}</h2>
+              <p class="description">{{ content.shortDescription }}</p>
             </div>
           </div>
         </template>
@@ -17,9 +15,20 @@
       <div class="course-view__controllers">
         <span></span>
         <!-- <arrow-paginator :currentPage="page" :pages="course.steps.length" @changePage="changePage"/> -->
-        <page-change-buttons :currentPage="page" :pages="course.steps.length" @changePage="changePage"/>
+        <page-change-buttons
+          :currentPage="page"
+          :pages="course.steps.length"
+          @changePage="changePage"
+        />
       </div>
-      <div class="placeholder-content" :style="{'transform': `translate3d(-${40 * (page-1)}px, -${40 * (page-1)}px, 0)`}" ref="placeholderList">
+      <div
+        class="placeholder-content"
+        :style="{
+          transform: `translate3d(-${40 * (page - 1)}px, -${40 *
+            (page - 1)}px, 0)`
+        }"
+        ref="placeholderList"
+      >
         <div
           class="placeholder"
           v-for="(item, i) in placeholders"
@@ -27,9 +36,10 @@
           :ref="`placeholder${i}`"
           v-show="page - 1 < i"
           :style="{
-            'margin': `${40 * i}px`,
-            'opacity': `${i === page ? '0.6' : i === page + 1? '0.4': 0.3 / i }`
-          }"></div>
+            margin: `${40 * i}px`,
+            opacity: `${i === page ? '0.6' : i === page + 1 ? '0.4' : 0.3 / i}`
+          }"
+        ></div>
       </div>
     </div>
     <aside class="course-view__right">
@@ -37,18 +47,29 @@
         Hello, Vladislav
       </h3>
       <div class="points">
-        <div class="title good">{{page}} Good points</div>
+        <div class="title good">{{ page }} Good points</div>
         <div class="points-line">
-          <div class="progress" :style="{'width': `${100/course.steps.length * page}%`}"></div>
+          <div
+            class="progress"
+            :style="{ width: `${(100 / course.steps.length) * page}%` }"
+          ></div>
         </div>
-        <div class="title bad">{{course.steps.length - page}} Suggested improvements</div>
+        <div class="title bad">
+          {{ course.steps.length - page }} Suggested improvements
+        </div>
       </div>
       <ul class="list">
-        <li :class="{
-          'list__item': true,
-          'active': content.id === item.id,
-          'success': item.id < page,
-        }" v-for="item in course.steps" :key="item.id">{{item.id}}. {{item.title}}</li>
+        <li
+          :class="{
+            list__item: true,
+            active: content.id === item.id,
+            success: item.id < page
+          }"
+          v-for="item in course.steps"
+          :key="item.id"
+        >
+          {{ item.id }}. {{ item.title }}
+        </li>
       </ul>
     </aside>
   </section>
@@ -61,7 +82,7 @@ export default {
   data() {
     return {
       placeholders: []
-    }
+    };
   },
   props: {
     course: Object,
@@ -73,16 +94,16 @@ export default {
     PageChangeButtons
   },
   created() {
-     for (let i = 0; i < this.course.steps.length; i++) {
-       this.placeholders.push(i);
-     }
+    for (let i = 0; i < this.course.steps.length; i++) {
+      this.placeholders.push(i);
+    }
   },
   methods: {
     changePage(data) {
-      this.$emit('updatePage', data);
+      this.$emit("updatePage", data);
     }
   }
-}
+};
 </script>
 <style lang="scss">
 .points {
@@ -184,13 +205,13 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    transition: all .15s ease-in-out;
+    transition: all 0.15s ease-in-out;
 
     .placeholder {
       width: 100%;
       height: 100%;
       background-color: var(--second-color);
-      opacity: .6;
+      opacity: 0.6;
       margin: 40px;
       position: absolute;
       left: 0;
@@ -239,7 +260,7 @@ export default {
         border-radius: 50%;
         width: 6px;
         height: 6px;
-        opacity: .4;
+        opacity: 0.4;
       }
 
       &.active {
@@ -250,10 +271,10 @@ export default {
       }
 
       &.success {
-        background-color: transparent;
+        background-color: transparent !important;
 
         &::before {
-          opacity: .6;
+          opacity: 0.6;
           background-color: var(--success-color);
         }
       }
@@ -262,7 +283,7 @@ export default {
         background-color: transparent;
 
         &::before {
-          opacity: .6;
+          opacity: 0.6;
           background-color: var(--error-color);
         }
       }

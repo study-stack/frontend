@@ -143,7 +143,7 @@ export default {
     }
 
     .profile-dropdown {
-      z-index: 1;
+      z-index: 99;
       transform: translate3d(0, 0, 0);
     }
   }
