@@ -16,14 +16,14 @@ export default {
       if (type === 'prev') {
         if (this.currentPage > 1) {
           const page = this.currentPage - 1;
-          this.$emit('changePage', page);
+          this.$emit('changePage', {type: 'prev', page: page});
         }
       }
 
       if (type === 'next') {
         if (this.currentPage < this.pages) {
           const page = this.currentPage + 1;
-          this.$emit('changePage', page);
+          this.$emit('changePage', {type: 'next', page: page});
         }
       }
     }
