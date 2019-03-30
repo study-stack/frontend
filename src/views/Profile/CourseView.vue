@@ -40,6 +40,7 @@ export default {
       this.$store.dispatch("UPDATE_SIDEBAR", "small");
       this.id = parseInt(this.$router.currentRoute.params.id);
       this.page = parseInt(this.$router.currentRoute.params.page);
+      this.$store.dispatch("UPDATE_HEADER_BACK", {link: `/profile/courses/${this.id}`});
       if (!this.course) {
         this.$store.dispatch(GET_COURSE, this.id).then(() => {
 
@@ -47,8 +48,11 @@ export default {
             this.$router.push(`/profile/courses/${this.id}/page/${this.courseStep.id}`);
           });
         });
+        return;
       }
-      this.$store.dispatch("UPDATE_HEADER_BACK", {link: `/profile/courses/${this.id}`});
+      this.$store.dispatch(GET_COURSE_STEP, this.id).then(res => {
+        this.$router.push(`/profile/courses/${this.id}/page/${this.courseStep.id}`);
+      });
     },
     updatePage(data) {
       if (data.type === 'next') {

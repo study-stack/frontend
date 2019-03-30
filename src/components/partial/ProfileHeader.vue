@@ -80,6 +80,10 @@ export default {
   background-color: var(--primary-second);
   padding: 15px 30px;
 
+  &__left {
+    position: relative;
+    z-index: 2; 
+  }
   &__container {
     display: flex;
     justify-content: space-between;
