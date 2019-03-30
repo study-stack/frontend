@@ -82,7 +82,7 @@ export default {
 
   &__left {
     position: relative;
-    z-index: 2; 
+    z-index: 2;
   }
   &__container {
     display: flex;
