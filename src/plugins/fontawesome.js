@@ -9,11 +9,6 @@ import {
   faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(
-  faAngleDown,
-  faBook,
-  faArrowLeft,
-  faArrowRight
-);
+library.add(faAngleDown, faBook, faArrowLeft, faArrowRight);
 
 Vue.component(FontAwesomeIcon.name, FontAwesomeIcon);

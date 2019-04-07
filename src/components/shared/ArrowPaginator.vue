@@ -1,10 +1,14 @@
 <template>
   <div class="arrow-paginator">
-    <font-awesome-icon :icon="['fa', 'arrow-left']" @click="changePage('prev')"/>
-    <span class="pages">
-      {{currentPage}}/{{pages}}
-    </span>
-    <font-awesome-icon :icon="['fa', 'arrow-right']" @click="changePage('next')"/>
+    <font-awesome-icon
+      :icon="['fa', 'arrow-left']"
+      @click="changePage('prev')"
+    />
+    <span class="pages"> {{ currentPage }}/{{ pages }} </span>
+    <font-awesome-icon
+      :icon="['fa', 'arrow-right']"
+      @click="changePage('next')"
+    />
   </div>
 </template>
 <script>
@@ -16,17 +20,17 @@ export default {
   },
   methods: {
     changePage(type) {
-      if (type === 'prev') {
+      if (type === "prev") {
         if (this.currentPage > 1) {
           const page = this.currentPage - 1;
-          this.$emit('changePage', page);
+          this.$emit("changePage", page);
         }
       }
 
-      if (type === 'next') {
+      if (type === "next") {
         if (this.currentPage < this.pages) {
           const page = this.currentPage + 1;
-          this.$emit('changePage', page);
+          this.$emit("changePage", page);
         }
       }
     }
@@ -39,7 +43,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   svg {
     cursor: pointer;
   }

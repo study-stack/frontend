@@ -74,7 +74,7 @@ const courseMock = {
       shortDescription: "4 learn java together"
     }
   ]
-}
+};
 const actions = {
   [NEXT_COURSE_STEP]: ({ dispatch, commit }, id) => {
     return new Promise((resolve, reject) => {

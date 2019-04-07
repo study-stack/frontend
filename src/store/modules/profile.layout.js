@@ -13,7 +13,7 @@ const actions = {
     const status = state.toLowerCase() === "small" ? true : false;
     commit("UPDATE_SIDEBAR", status);
   },
-  ["UPDATE_HEADER_BACK"]: ({commit}, state) => {
+  ["UPDATE_HEADER_BACK"]: ({ commit }, state) => {
     commit("UPDATE_HEADER_BACK", state);
   }
 };
