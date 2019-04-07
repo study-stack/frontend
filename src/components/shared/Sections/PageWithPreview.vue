@@ -15,7 +15,7 @@
     </section>
   </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 .page {
   &-head {
     min-height: 120px;

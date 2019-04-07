@@ -63,9 +63,17 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .course-page {
   margin: -60px -30px;
+
+  .page-head {
+    align-items: flex-start;
+
+    &__left {
+      margin-right: 15px;
+    }
+  }
 
   .field {
     margin: 15px 0;
