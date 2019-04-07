@@ -8,6 +8,21 @@
             <div class="content">
               <h2 class="title">{{ content.title }}</h2>
               <p class="description">{{ content.shortDescription }}</p>
+              <div class="course-view__learn">
+                <course-theory-content
+                  v-if="
+                    content.stepData && content.type.toLowerCase() === 'theory'
+                  "
+                  :content="content.stepData"
+                />
+                <course-answers-select
+                  v-if="
+                    content.stepData &&
+                      content.type.toLowerCase() === 'select_answer'
+                  "
+                  :content="content.stepData"
+                />
+              </div>
             </div>
           </div>
         </template>
@@ -77,6 +92,8 @@
 <script>
 // import ArrowPaginator from "@/components/shared/ArrowPaginator";
 import PageChangeButtons from "@/components/shared/PageChangeButtons";
+import CourseTheoryContent from "./CourseTheoryContent";
+import CourseAnswersSelect from "./CourseAnswersSelect";
 
 export default {
   data() {
@@ -91,7 +108,9 @@ export default {
   },
   components: {
     // ArrowPaginator,
-    PageChangeButtons
+    PageChangeButtons,
+    CourseTheoryContent,
+    CourseAnswersSelect
   },
   created() {
     for (let i = 0; i < this.course.steps.length; i++) {
@@ -190,6 +209,11 @@ export default {
       font-size: 42px !important;
       line-height: 1.3;
       color: var(--purr-color);
+    }
+
+    .description {
+      margin: 15px 0;
+      font-size: 18px;
     }
 
     .top {
