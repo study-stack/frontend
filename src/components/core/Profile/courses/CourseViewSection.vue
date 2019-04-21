@@ -20,6 +20,7 @@
                     content.stepData &&
                       content.type.toLowerCase() === 'select_answer'
                   "
+                  @selected="answerSelected"
                   :content="content.stepData"
                 />
               </div>
@@ -94,11 +95,13 @@
 import PageChangeButtons from "@/components/shared/PageChangeButtons";
 import CourseTheoryContent from "./CourseTheoryContent";
 import CourseAnswersSelect from "./CourseAnswersSelect";
+import { PUSH_COURSE_ANSWER } from "@/store/actions/course.js";
 
 export default {
   data() {
     return {
-      placeholders: []
+      placeholders: [],
+      answer: null,
     };
   },
   props: {
@@ -119,7 +122,19 @@ export default {
   },
   methods: {
     changePage(data) {
-      this.$emit("updatePage", data);
+      if (!this.answer) {
+        this.$emit("updatePage", data);
+      } else {
+        this.$store.dispatch(PUSH_COURSE_ANSWER, { id: this.id, answer: this.answer }).then(res => {
+          if (res.status === 200) {
+            this.answer = null;
+            this.$emit("updatePage", data);
+          }
+        });
+      }
+    },
+    answerSelected(id) {
+      this.answer = id;
     }
   }
 };

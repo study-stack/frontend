@@ -8,8 +8,10 @@
         class="answer-item"
         v-for="item in content.question.answers"
         :key="item.id"
+        @click="select(item.id)"
       >
-        {{ item.content }}
+        {{ item.content }} {{item.id === answer ? 'checked' : ''}}
+        <!-- TODO: add normal checkboxes for select answer -->
       </li>
     </ul>
   </div>
@@ -17,7 +19,18 @@
 <script>
 export default {
   props: {
-    content: Object
+    content: Object,
+  },
+  data() {
+    return {
+      answer: null
+    }
+  },
+  methods: {
+    select(id) {
+      this.answer = id;
+      this.$emit('selected', id);
+    }
   }
 
   // TODO: Add for questions step disabled state for NEXT button. If we haven't checked answers, we can't change step. And add send data for Answers type.

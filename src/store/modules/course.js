@@ -5,7 +5,8 @@ import {
   COURSE_REQUEST,
   COURSE_SUCCESS,
   GET_COURSE_STEP,
-  NEXT_COURSE_STEP
+  NEXT_COURSE_STEP,
+  PUSH_COURSE_ANSWER
 } from "../actions/course";
 import { AUTH_LOGOUT } from "../actions/auth";
 import axios from "axios";
@@ -177,6 +178,28 @@ const actions = {
       //   ...courseMock
       // });
     });
+  },
+  [PUSH_COURSE_ANSWER]: ({dispatch, commit}, {id, answer}) => {
+    commit(COURSE_REQUEST);
+    return new Promise((resolve, reject) => {
+      axios({
+        url: `/courses/api/courses/${id}/submit?input=${answer}/`,
+        baseURL: baseURL,
+        method: "GET"
+      })
+        .then(res => {
+          if (res.status === 200) {
+            resolve(res);
+            commit(COURSE_SUCCESS);
+          }
+        })
+        .catch(err => {
+          reject(err);
+          commit(COURSE_ERROR);
+          if (err.response.status === 401) {
+            dispatch(AUTH_LOGOUT);
+          }
+        });
   }
 };
 
