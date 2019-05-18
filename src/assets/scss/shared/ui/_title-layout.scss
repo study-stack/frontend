@@ -1,0 +1,11 @@
+.title-layout {
+  &__under-border {
+    display: block;
+    position: relative;
+    background-color: var(--third-color);
+    width: 100%;
+    max-width: 66px;
+    height: 8px;
+    margin: 20px 0 10px;
+  }
+}

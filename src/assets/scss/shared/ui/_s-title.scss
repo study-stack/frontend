@@ -1,0 +1,20 @@
+.s-title {
+  position: relative;
+  color: var(--second-color);
+
+  .block {
+    display: block;
+  }
+}
+
+h3.s-title {
+  font-size: 36px !important;
+  line-height: 53px !important;
+  text-align: center;
+  display: block;
+}
+
+h4.s-title {
+  font-size: 30px;
+  line-height: 44px;
+}

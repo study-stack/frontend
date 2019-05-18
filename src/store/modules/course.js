@@ -179,7 +179,7 @@ const actions = {
       // });
     });
   },
-  [PUSH_COURSE_ANSWER]: ({dispatch, commit}, {id, answer}) => {
+  [PUSH_COURSE_ANSWER]: ({ dispatch, commit }, { id, answer }) => {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
       axios({

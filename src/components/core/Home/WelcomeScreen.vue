@@ -33,9 +33,9 @@
 <style lang="scss">
 .c-welcome {
   &__title {
-    font-size: 24px;
+    font-size: 24px !important;
     color: #f8f8f8;
-    line-height: 30px;
+    line-height: 30px !important;
   }
 
   &__text {
