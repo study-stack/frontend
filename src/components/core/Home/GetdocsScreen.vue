@@ -5,21 +5,28 @@
         <h3 class="c-docs__title">Получи PDF с 7 советами от 7 людей, как быстро развиваться в ИТ</h3>
         <p class="c-docs__short">Оставь почту, на которую хочешь получить советы и маленький подарок от нас</p>
         <div class="c-docs__body">
-
+          <input-and-button-form @submit="submit()" />
         </div>
       </div>
     </v-container>
   </section>
 </template>
 <script>
+import InputAndButtonForm from "@/components/shared/forms/InputAndButtonForm";
 export default {
   components: {
+    InputAndButtonForm
+  },
+  methods: {
+    submit() {
+
+    }
   }
 };
 </script>
 <style lang="scss">
 .c-docs {
-  padding: 120px 0;
+  padding: 100px 0 100px;
   background-color: #FBFBFB;
 
   &__title {
