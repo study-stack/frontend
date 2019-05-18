@@ -54,8 +54,13 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .c-steps {
   padding: 120px 0 110px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
