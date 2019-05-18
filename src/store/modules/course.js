@@ -200,6 +200,7 @@ const actions = {
             dispatch(AUTH_LOGOUT);
           }
         });
+    });
   }
 };
 
