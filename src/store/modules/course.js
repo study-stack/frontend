@@ -18,7 +18,7 @@ const state = {
   courseStep: null
 };
 
-const baseURL = "http://localhost:8080";
+const baseURL = "https://stdstack.appspot.com/";
 
 const getters = {
   coursesLoading: state => state.loading,

@@ -16,7 +16,7 @@ const state = {
   statusCode: ""
 };
 
-const baseURL = "http://localhost:8080";
+const baseURL = "https://stdstack.appspot.com/";
 
 const getters = {
   isAuthenticated: state => !!state.token,
