@@ -12,6 +12,10 @@ h3.s-title {
   line-height: 53px !important;
   text-align: center;
   display: block;
+
+  &__lg {
+    font-weight: bold;
+  }
 }
 
 h4.s-title {
