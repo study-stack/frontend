@@ -94,6 +94,10 @@ export default {
     }
   }
 
+  &__body {
+    margin: 20px 0 0;
+  }
+  
   &__controll {
     margin: 63px 0 0;
     transition: opacity .15s ease;
