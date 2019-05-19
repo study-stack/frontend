@@ -43,7 +43,7 @@ const actions = {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: "Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ"
+          authorization: "Basic c3RkX3N0YWNrOm15LXNlY3JldC1rZXk"
         }
       })
         .then(resp => {

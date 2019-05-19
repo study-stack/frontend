@@ -12,6 +12,9 @@ if (token) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 }
 
+axios.defaults.headers.common["clientId"] = "std_stack";
+axios.defaults.headers.common["clientSecret"] = "my-secret-key";
+
 Vue.filter("decnum", (number, titles) => {
   let cases = [2, 0, 1, 1, 1, 2];
   return `${number} ${
