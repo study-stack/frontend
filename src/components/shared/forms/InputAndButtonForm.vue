@@ -7,7 +7,7 @@
         label="Твой E-mail"
         @input="checkValue(form.email)"
       />
-      <form-button @click="$emit('submit', form)" :disabled="!form.email.valid" title="Хочу" />
+      <form-button class="request-form__button" @click="$emit('submit', form)" :disabled="!form.email.valid" title="Хочу" />
     </form>
   </aside>
 </template>
@@ -53,6 +53,11 @@ export default {
     display: flex;
     justify-content: space-between;
     height: 100%;
+  }
+
+  &__button {
+    max-width: 173px;
+    min-width: 173px;
   }
 }
 </style>
