@@ -1,5 +1,7 @@
 <template>
-<button class="form-button" @click="$emit('click')" :disabled="disabled">{{title}}</button>
+<button :class="{
+  'form-button': true
+  }" @click="$emit('click')" :disabled="disabled">{{title}}</button>
 </template>
 <script>
 export default {
