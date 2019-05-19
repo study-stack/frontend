@@ -35,7 +35,7 @@ const actions = {
       auth.set("password", user.password);
       commit(AUTH_REQUEST);
       axios({
-        url: "/oauth/oauth/token",
+        url: "/oauth/token",
         baseURL: baseURL,
         data: `grant_type=password&password=${user.password}&username=${
           user.username
