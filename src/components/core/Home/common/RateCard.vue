@@ -37,6 +37,7 @@ export default {
 <style lang="scss" scoped>
 .rate-card {
   width: 33%;
+  max-width: 346px;
   padding: 65px 76px;
   margin: 61px 0;
   background-color: transparent;
@@ -97,7 +98,7 @@ export default {
   &__body {
     margin: 20px 0 0;
   }
-  
+
   &__controll {
     margin: 63px 0 0;
     transition: opacity .15s ease;

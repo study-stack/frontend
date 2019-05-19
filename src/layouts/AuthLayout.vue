@@ -2,17 +2,17 @@
   <div class="auth-page page page__full">
     <my-header />
     <slot></slot>
-    <my-footer />
+    <!-- <my-footer /> -->
   </div>
 </template>
 <script>
 import MyHeader from "@/components/partial/Header";
-import MyFooter from "@/components/partial/Footer";
+// import MyFooter from "@/components/partial/Footer";
 
 export default {
   components: {
     MyHeader,
-    MyFooter
+    // MyFooter
   }
 };
 </script>

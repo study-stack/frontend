@@ -1,5 +1,8 @@
 <template>
-  <div class="logo">
+  <div :class="{
+    'logo': true,
+    'reverse': black
+  }">
     <router-link to="/">
       <h1 class="logo__main">
         <span class="pre">std:</span>
@@ -9,8 +12,26 @@
     <span class="logo__text">learn today grow tomorrow</span>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    black: Boolean
+  }
+}
+</script>
 <style lang="scss">
 .logo {
+
+  &.reverse {
+    .logo__main {
+      color: #262626;
+    }
+
+    .logo__text {
+      color: #333;
+    }
+  }
+
   &__main {
     font-size: 24px;
     color: var(--second-color);
