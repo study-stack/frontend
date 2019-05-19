@@ -21,8 +21,6 @@ export default {
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 15px 0;
-  max-width: 173px;
-  min-width: 173px;
   width: 100%;
   height: 100%;
 }
