@@ -2,7 +2,7 @@
   <section class="c-docs">
     <v-container>
       <div class="c-docs__container">
-        <h3 class="c-docs__title">Получи PDF с 7 советами от 7 людей, как быстро развиваться в ИТ</h3>
+        <h3 class="s-title s-title__lg c-docs__title">Получи PDF с 7 советами от 7 людей, как быстро развиваться в ИТ</h3>
         <p class="c-docs__short">Оставь почту, на которую хочешь получить советы и маленький подарок от нас</p>
         <div class="c-docs__body">
           <input-and-button-form @submit="submit()" />
@@ -31,7 +31,7 @@ export default {
 
   &__title {
     font-size: 36px;
-    line-height: 41px;
+    line-height: 41px !important;
     color: #333;
     font-weight: 600;
     max-width: 900px;
