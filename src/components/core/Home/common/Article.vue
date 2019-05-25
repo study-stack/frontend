@@ -1,7 +1,7 @@
 <template>
   <article class="article" :style="`min-height: ${minHeight}px`">
     <div class="article__head">
-      
+      <Logo :black="true" />
     </div>
     <div class="article__content">
 
@@ -9,9 +9,13 @@
   </article>
 </template>
 <script>
+import Logo from "@/components/shared/MagazineLogo";
 export default {
   props: {
     item: Object,
+  },
+  components: {
+    Logo,
   },
   data() {
     return {
@@ -45,6 +49,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 5%;
 
   &__container {
   }
