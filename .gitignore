@@ -23,3 +23,5 @@ yarn-error.log*
 
 *.iml
 *.tgz
+
+environment.js
