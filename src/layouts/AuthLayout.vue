@@ -11,7 +11,7 @@ import MyHeader from "@/components/partial/Header";
 
 export default {
   components: {
-    MyHeader,
+    MyHeader
     // MyFooter
   }
 };

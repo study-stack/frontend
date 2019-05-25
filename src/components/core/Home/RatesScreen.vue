@@ -2,8 +2,13 @@
   <section class="c-rates">
     <v-container>
       <div class="c-rates__container">
-        <h3 class="s-title s-title__lg c-rates__title">Выбери комфортный для себя тариф</h3>
-        <p class="c-rates__short">В стоимость входят облачные мощности Microsoft Azure, платформа разработки Cloud9.</p>
+        <h3 class="s-title s-title__lg c-rates__title">
+          Выбери комфортный для себя тариф
+        </h3>
+        <p class="c-rates__short">
+          В стоимость входят облачные мощности Microsoft Azure, платформа
+          разработки Cloud9.
+        </p>
         <div class="c-rates__list">
           <rate-card v-for="(item, index) in items" :key="index" :item="item" />
         </div>
@@ -18,48 +23,48 @@ export default {
     return {
       items: [
         {
-          title: 'Bronze',
-          price: '50',
-          period: 'month',
-          currency: '$',
+          title: "Bronze",
+          price: "50",
+          period: "month",
+          currency: "$",
           differences: [
-            'Онлайн поддержка наставника',
-            'Дополнительный плюс',
-            'Дополнительный плюс',
-            'Еще плюс'
+            "Онлайн поддержка наставника",
+            "Дополнительный плюс",
+            "Дополнительный плюс",
+            "Еще плюс"
           ]
         },
         {
-          title: 'Silver',
-          price: '90',
-          period: 'month',
-          currency: '$',
+          title: "Silver",
+          price: "90",
+          period: "month",
+          currency: "$",
           differences: [
-            'Онлайн поддержка наставника',
-            'Дополнительный плюс',
-            'Дополнительный плюс',
-            'Еще плюс'
+            "Онлайн поддержка наставника",
+            "Дополнительный плюс",
+            "Дополнительный плюс",
+            "Еще плюс"
           ],
           active: true
         },
         {
-          title: 'Gold',
-          price: '350',
-          period: 'month',
-          currency: '$',
+          title: "Gold",
+          price: "350",
+          period: "month",
+          currency: "$",
           differences: [
-            'Онлайн поддержка наставника',
-            'Дополнительный плюс',
-            'Дополнительный плюс',
-            'Еще плюс'
+            "Онлайн поддержка наставника",
+            "Дополнительный плюс",
+            "Дополнительный плюс",
+            "Еще плюс"
           ]
         }
       ]
-    }
+    };
   },
   components: {
     RateCard
-  },
+  }
 };
 </script>
 <style lang="scss">

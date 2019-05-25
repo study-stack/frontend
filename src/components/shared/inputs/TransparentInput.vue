@@ -1,10 +1,12 @@
 <template>
-  <label :class="{
-    'transparent-input': true,
-    'has-content': value && value.length > 0 || focus,
-    'has-error': error && error.length > 0
-  }">
-    <span class="transparent-input__label">{{label}}</span>
+  <label
+    :class="{
+      'transparent-input': true,
+      'has-content': (value && value.length > 0) || focus,
+      'has-error': error && error.length > 0
+    }"
+  >
+    <span class="transparent-input__label">{{ label }}</span>
     <input
       class="transparent-input__input"
       :type="type ? type : 'text'"
@@ -32,15 +34,15 @@ export default {
   },
   data() {
     return {
-      focus: false,
-    }
+      focus: false
+    };
   }
 };
 </script>
 <style lang="scss" scoped>
 .transparent-input {
   height: 100%;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -53,7 +55,7 @@ export default {
     left: 60px;
     top: 50%;
     transform: translate(0, -50%);
-    transition: opacity .15s ease;
+    transition: opacity 0.15s ease;
     opacity: 1;
     cursor: text;
   }

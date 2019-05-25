@@ -1,19 +1,25 @@
 <template>
-  <div :class="{
-    'c-step': true,
-    'left': item.position === 'left',
-    'right': item.position === 'right'
-  }">
+  <div
+    :class="{
+      'c-step': true,
+      left: item.position === 'left',
+      right: item.position === 'right'
+    }"
+  >
     <article class="c-step__article">
       <h4 class="s-title c-step__title">
-        <span class="block">{{item.title}}</span>
+        <span class="block">{{ item.title }}</span>
         <span class="title-layout__under-border"></span>
       </h4>
       <div class="c-step__content">
-        <template  v-for="(p, index) in item.description">
-          <p class="c-step__p" v-bind:style="{'color': p.color ? p.color : ''}" :key="index">
-            <template v-if="!p.color">{{p}}</template>
-            <template v-if="p.color">{{p.text}}</template>
+        <template v-for="(p, index) in item.description">
+          <p
+            class="c-step__p"
+            v-bind:style="{ color: p.color ? p.color : '' }"
+            :key="index"
+          >
+            <template v-if="!p.color">{{ p }}</template>
+            <template v-if="p.color">{{ p.text }}</template>
           </p>
         </template>
       </div>
@@ -76,7 +82,6 @@ export default {
   }
 
   &__content {
-
     p {
       max-width: 464px;
       display: block;

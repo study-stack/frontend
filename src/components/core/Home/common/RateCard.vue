@@ -1,21 +1,27 @@
 <template>
-  <article :class="{
-    'rate-card': true,
-    'active': item.active
-  }">
+  <article
+    :class="{
+      'rate-card': true,
+      active: item.active
+    }"
+  >
     <div class="rate-card__top">
-      <h4 class="rate-card__title">{{item.title}}</h4>
+      <h4 class="rate-card__title">{{ item.title }}</h4>
       <div class="rate-card__price">
         <div class="price">
-          <span class="item price-currency">{{item.currency}}</span>
-          <span class="item price-value">{{item.price}}</span>
-          <span class="item price-period">/{{item.period}}</span>
+          <span class="item price-currency">{{ item.currency }}</span>
+          <span class="item price-value">{{ item.price }}</span>
+          <span class="item price-period">/{{ item.period }}</span>
         </div>
       </div>
     </div>
     <div class="rate-card__body">
-      <p class="rate-card__p" v-for="(p, index) in item.differences" :key="index">
-        {{p}}
+      <p
+        class="rate-card__p"
+        v-for="(p, index) in item.differences"
+        :key="index"
+      >
+        {{ p }}
       </p>
     </div>
     <div class="rate-card__controll">
@@ -41,7 +47,7 @@ export default {
   padding: 65px 76px;
   margin: 61px 0;
   background-color: transparent;
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   position: relative;
   z-index: 1;
 
@@ -78,7 +84,7 @@ export default {
     line-height: 41px;
     /* identical to box height */
     letter-spacing: 0.05em;
-    color: #F2F2F2;
+    color: #f2f2f2;
     margin: 0 0 10px;
   }
 
@@ -86,7 +92,7 @@ export default {
     font-size: 14px;
     line-height: 21px;
     /* identical to box height */
-    color: #F2F2F2;
+    color: #f2f2f2;
     padding: 11px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
@@ -101,7 +107,7 @@ export default {
 
   &__controll {
     margin: 63px 0 0;
-    transition: opacity .15s ease;
+    transition: opacity 0.15s ease;
     opacity: 0;
   }
 
@@ -118,14 +124,15 @@ export default {
     .price {
       display: flex;
       align-items: flex-end;
-      
+
       &-value {
         font-weight: bold;
         font-size: 52px;
         line-height: 0.7;
       }
 
-      &-currency, &-period {
+      &-currency,
+      &-period {
         font-size: 18px;
         line-height: 23px;
       }

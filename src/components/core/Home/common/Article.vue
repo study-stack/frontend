@@ -3,41 +3,39 @@
     <div class="article__head">
       <Logo :black="true" />
     </div>
-    <div class="article__content">
-
-    </div>
+    <div class="article__content"></div>
   </article>
 </template>
 <script>
 import Logo from "@/components/shared/MagazineLogo";
 export default {
   props: {
-    item: Object,
+    item: Object
   },
   components: {
-    Logo,
+    Logo
   },
   data() {
     return {
-      minHeight: 0,
-    }
+      minHeight: 0
+    };
   },
   mounted() {
     this.calculate();
     if (window) {
-      window.addEventListener('resize', this.calculate);
+      window.addEventListener("resize", this.calculate);
     }
   },
   destroyed() {
     if (window) {
-      window.removeEventListener('resize', this.calculate);
+      window.removeEventListener("resize", this.calculate);
     }
   },
   methods: {
     calculate() {
       this.minHeight = this.$el.clientWidth / 1.7;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

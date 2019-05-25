@@ -167,7 +167,7 @@ const mutations = {
   [GET_COURSES]: (state, courses) => {
     state.courses = courses;
   },
-  [GET_COURSE_REQUEST]: (state) => {
+  [GET_COURSE_REQUEST]: state => {
     state.course = null;
   },
   [GET_COURSE]: (state, course) => {

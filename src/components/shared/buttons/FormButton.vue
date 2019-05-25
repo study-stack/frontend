@@ -1,7 +1,13 @@
 <template>
-<button :class="{
-  'form-button': true
-  }" @click="$emit('click')" :disabled="disabled">{{title}}</button>
+  <button
+    :class="{
+      'form-button': true
+    }"
+    @click="$emit('click')"
+    :disabled="disabled"
+  >
+    {{ title }}
+  </button>
 </template>
 <script>
 export default {
@@ -9,7 +15,7 @@ export default {
     title: String,
     disabled: Boolean
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .form-button {

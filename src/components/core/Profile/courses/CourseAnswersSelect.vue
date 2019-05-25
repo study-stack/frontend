@@ -10,7 +10,7 @@
         :key="item.id"
         @click="select(item.id)"
       >
-        {{ item.content }} {{item.id === answer ? 'checked' : ''}}
+        {{ item.content }} {{ item.id === answer ? "checked" : "" }}
         <!-- TODO: add normal checkboxes for select answer -->
       </li>
     </ul>
@@ -19,17 +19,17 @@
 <script>
 export default {
   props: {
-    content: Object,
+    content: Object
   },
   data() {
     return {
       answer: null
-    }
+    };
   },
   methods: {
     select(id) {
       this.answer = id;
-      this.$emit('selected', id);
+      this.$emit("selected", id);
     }
   }
 

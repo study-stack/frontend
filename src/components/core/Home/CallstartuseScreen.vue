@@ -1,14 +1,15 @@
 <template>
   <section class="call-start">
     <v-container>
-      <h3 class="call-start__title s-title">Проверьте свои навыки. Выучите новое. Повторите.</h3>
-      <p class="call-start__short">Начни прямо сейчас постигать профессию своей мечты</p>
+      <h3 class="call-start__title s-title">
+        Проверьте свои навыки. Выучите новое. Повторите.
+      </h3>
+      <p class="call-start__short">
+        Начни прямо сейчас постигать профессию своей мечты
+      </p>
       <div class="call-start__controlls">
         <div class="controlls">
-          <custom-button
-            :link="``"
-            title="Начать"
-          />
+          <custom-button :link="``" title="Начать" />
         </div>
       </div>
     </v-container>
@@ -18,21 +19,21 @@
 import CustomButton from "@/components/shared/ui/CustomButton";
 export default {
   components: {
-    CustomButton,
+    CustomButton
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .call-start {
   margin: 100px 0;
   display: block;
-  
+
   &__short {
     font-size: 16px;
     line-height: 24px;
     /* or 150% */
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
     mix-blend-mode: normal;
     opacity: 0.8;
   }

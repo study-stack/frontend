@@ -7,7 +7,11 @@
         </div>
         <div class="footer__middle">
           <div class="footer__list">
-            <footer-nav v-for="(item, index) in items" :key="index" :item="item" />
+            <footer-nav
+              v-for="(item, index) in items"
+              :key="index"
+              :item="item"
+            />
           </div>
           <div class="footer__auth">
             <router-link to="/profile" class="footer__link item" v-if="auth"
@@ -16,22 +20,21 @@
             <router-link to="/login" class="footer__link item" v-if="!auth"
               >Войти</router-link
             >
-            <router-link
-              to="/signup"
-              class="footer__link item"
-              v-if="!auth"
+            <router-link to="/signup" class="footer__link item" v-if="!auth"
               >Регистрация</router-link
             >
           </div>
         </div>
         <div class="footer__bottom">
-          <div class="footer__socials">
-
-          </div>
+          <div class="footer__socials"></div>
           <div class="footer__copyright">
             <div class="left">
               <ul class="copyright-nav">
-                <li class="copyright-nav__item" v-for="(item, index) in copyright" :key="index">
+                <li
+                  class="copyright-nav__item"
+                  v-for="(item, index) in copyright"
+                  :key="index"
+                >
                   <router-link :to="item.link" class="copyright-nav__link">{{
                     item.title
                   }}</router-link>
@@ -39,7 +42,9 @@
               </ul>
             </div>
             <div class="righ">
-              <p class="copyright">Copyright © 2004 - 2019 StudyLabel LLC. All rights reserved</p>
+              <p class="copyright">
+                Copyright © 2004 - 2019 StudyLabel LLC. All rights reserved
+              </p>
             </div>
           </div>
         </div>
@@ -57,145 +62,145 @@ export default {
         {
           links: [
             {
-              title: 'Главная',
-              link: '#',
-              isTitle: true,
+              title: "Главная",
+              link: "#",
+              isTitle: true
             },
             {
-              title: 'Платформа',
-              link: '#',
-              isTitle: true,
+              title: "Платформа",
+              link: "#",
+              isTitle: true
             },
             {
-              title: 'О компании',
-              link: '#',
-              isTitle: true,
+              title: "О компании",
+              link: "#",
+              isTitle: true
             },
             {
-              title: 'Вопросы',
-              link: '#',
-              isTitle: true,
+              title: "Вопросы",
+              link: "#",
+              isTitle: true
             },
             {
-              title: 'Оплата',
-              link: '#',
-              isTitle: true,
+              title: "Оплата",
+              link: "#",
+              isTitle: true
             }
           ]
         },
         {
-          title: 'Решения',
+          title: "Решения",
           isTitle: true,
           links: [
             {
-              title: 'Бизнес',
-              link: '#',
+              title: "Бизнес",
+              link: "#"
             },
             {
-              title: 'Стартапов',
-              link: '#',
+              title: "Стартапов",
+              link: "#"
             },
             {
-              title: 'Университет',
-              link: '#',
+              title: "Университет",
+              link: "#"
             },
             {
-              title: 'Персональные',
-              link: '#',
+              title: "Персональные",
+              link: "#"
             }
           ]
         },
         {
-          title: 'Платформа',
+          title: "Платформа",
           isTitle: true,
           links: [
             {
-              title: 'Направления',
-              link: '#',
+              title: "Направления",
+              link: "#"
             },
             {
-              title: '',
+              title: "",
               hide: true,
-              link: '#',
+              link: "#"
             },
             {
-              title: 'Тарифы',
-              link: '#',
+              title: "Тарифы",
+              link: "#"
             },
             {
-              title: 'База знаний',
-              link: '#',
+              title: "База знаний",
+              link: "#"
             },
             {
-              title: 'Инструкции',
-              link: '#',
+              title: "Инструкции",
+              link: "#"
             },
             {
-              title: 'Лекции',
-              link: '#',
+              title: "Лекции",
+              link: "#"
             },
             {
-              title: 'Помощь',
-              link: '#',
+              title: "Помощь",
+              link: "#"
             }
           ]
         },
         {
-          title: 'О компании',
+          title: "О компании",
           isTitle: true,
           links: [
             {
-              title: 'Партнеры',
-              link: '#',
+              title: "Партнеры",
+              link: "#"
             },
             {
-              title: 'Виза',
-              link: '#',
+              title: "Виза",
+              link: "#"
             },
             {
-              title: 'Вакансии',
-              link: '#',
+              title: "Вакансии",
+              link: "#"
             },
             {
-              title: 'Работа',
-              link: '#',
+              title: "Работа",
+              link: "#"
             },
             {
-              title: 'Офисы',
-              link: '#',
+              title: "Офисы",
+              link: "#"
             }
           ]
         },
         {
-          title: 'Помощь',
+          title: "Помощь",
           isTitle: true,
           links: [
             {
-              title: 'Онлайн поддержка',
-              link: '#',
+              title: "Онлайн поддержка",
+              link: "#"
             },
             {
-              title: 'Оставить обращение',
-              link: '#',
+              title: "Оставить обращение",
+              link: "#"
             }
           ]
         }
       ],
       copyright: [
         {
-          link: '#',
-          title: 'Site Map'
+          link: "#",
+          title: "Site Map"
         },
         {
-          link: '#',
-          title: 'Terms Of Use'
+          link: "#",
+          title: "Terms Of Use"
         },
         {
-          link: '#',
-          title: 'Privacy Policy'
+          link: "#",
+          title: "Privacy Policy"
         }
       ]
-    }
+    };
   },
   components: {
     Logo,
@@ -206,14 +211,15 @@ export default {
       return this.$store.getters.isAuthenticated;
     }
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .footer {
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   padding: 30px 0;
 
-  &__middle, &__list {
+  &__middle,
+  &__list {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -252,7 +258,7 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
+
     &__item {
       position: relative;
 

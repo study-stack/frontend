@@ -7,7 +7,12 @@
         label="Твой E-mail"
         @input="checkValue(form.email)"
       />
-      <form-button class="request-form__button" @click="$emit('submit', form)" :disabled="!form.email.valid" title="Хочу" />
+      <form-button
+        class="request-form__button"
+        @click="$emit('submit', form)"
+        :disabled="!form.email.valid"
+        title="Хочу"
+      />
     </form>
   </aside>
 </template>
@@ -20,12 +25,12 @@ export default {
     return {
       form: {
         email: {
-          value: '',
+          value: "",
           valid: false,
-          error: ''
+          error: ""
         }
       }
-    }
+    };
   },
   methods: {
     checkValue(model) {
@@ -45,7 +50,7 @@ export default {
   margin: 0 auto;
   height: 50px;
 
-  border: 1px solid #E4E4E4;
+  border: 1px solid #e4e4e4;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06);
   border-radius: 6px;
 

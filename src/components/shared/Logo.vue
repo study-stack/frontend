@@ -1,8 +1,10 @@
 <template>
-  <div :class="{
-    'logo': true,
-    'reverse': black
-  }">
+  <div
+    :class="{
+      logo: true,
+      reverse: black
+    }"
+  >
     <router-link to="/">
       <h1 class="logo__main">
         <span class="pre">std:</span>
@@ -17,11 +19,10 @@ export default {
   props: {
     black: Boolean
   }
-}
+};
 </script>
 <style lang="scss">
 .logo {
-
   &.reverse {
     .logo__main {
       color: #262626;

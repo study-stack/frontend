@@ -24,7 +24,7 @@ export default {
     GetdocsScreen,
     RatesScreen,
     CallstartuseScreen,
-    ArticlesScreen,
+    ArticlesScreen
   }
 };
 </script>

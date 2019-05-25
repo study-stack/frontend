@@ -101,7 +101,7 @@ export default {
   data() {
     return {
       placeholders: [],
-      answer: null,
+      answer: null
     };
   },
   props: {
@@ -125,12 +125,14 @@ export default {
       if (!this.answer) {
         this.$emit("updatePage", data);
       } else {
-        this.$store.dispatch(PUSH_COURSE_ANSWER, { id: this.id, answer: this.answer }).then(res => {
-          if (res.status === 200) {
-            this.answer = null;
-            this.$emit("updatePage", data);
-          }
-        });
+        this.$store
+          .dispatch(PUSH_COURSE_ANSWER, { id: this.id, answer: this.answer })
+          .then(res => {
+            if (res.status === 200) {
+              this.answer = null;
+              this.$emit("updatePage", data);
+            }
+          });
       }
     },
     answerSelected(id) {

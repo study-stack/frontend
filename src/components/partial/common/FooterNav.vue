@@ -1,18 +1,24 @@
 <template>
   <aside class="footer-nav">
     <ul class="footer-nav__list">
-      <li :class="{
-        'footer-nav__item': true,
-        'title': item.isTitle
-      }" v-if="!item.link">
-        <span class="footer-nav__link">{{item.title}}</span>
-      </li>
-      <template v-for="(el, index) in item.links" >
-        <li :class="{
+      <li
+        :class="{
           'footer-nav__item': true,
-          'title': el.isTitle,
-          'hiddest': el.hide
-        }" :key="index">
+          title: item.isTitle
+        }"
+        v-if="!item.link"
+      >
+        <span class="footer-nav__link">{{ item.title }}</span>
+      </li>
+      <template v-for="(el, index) in item.links">
+        <li
+          :class="{
+            'footer-nav__item': true,
+            title: el.isTitle,
+            hiddest: el.hide
+          }"
+          :key="index"
+        >
           <router-link :to="el.link" class="footer-nav__link">{{
             el.title
           }}</router-link>
@@ -26,7 +32,7 @@ export default {
   props: {
     item: Object
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .footer-nav {

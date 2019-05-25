@@ -1,8 +1,10 @@
 <template>
-  <div :class="{
-    'logo': true,
-    'reverse': black
-  }">
+  <div
+    :class="{
+      logo: true,
+      reverse: black
+    }"
+  >
     <h1 class="logo__main">
       <span class="pre">std:</span>
       <div class="post"><i>:</i>magazine</div>
@@ -14,11 +16,10 @@ export default {
   props: {
     black: Boolean
   }
-}
+};
 </script>
 <style lang="scss">
 .logo {
-
   &.reverse {
     .logo__main {
       color: #262626;
@@ -38,7 +39,7 @@ export default {
 
     .post {
       font-weight: 400;
-      color: #EB2A36;
+      color: #eb2a36;
 
       i {
         font-weight: 600;
