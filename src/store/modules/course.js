@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import {
   GET_COURSES,
   GET_COURSE_REQUEST,
@@ -10,7 +12,7 @@ import {
   PUSH_COURSE_ANSWER
 } from "../actions/course";
 import { AUTH_LOGOUT } from "../actions/auth";
-import axios from "axios";
+import { SERVER_API_URL } from "../../../environment";
 
 const state = {
   loading: false,
@@ -19,7 +21,7 @@ const state = {
   courseStep: null
 };
 
-const baseURL = "https://stdstack.appspot.com/";
+const baseURL = SERVER_API_URL || "https://stdstack.appspot.com/";
 
 const getters = {
   coursesLoading: state => state.loading,

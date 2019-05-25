@@ -5,6 +5,9 @@
 npm install
 ```
 
+### Environments
+Create file environment.js and copy envs from environment.js.examples file.
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve

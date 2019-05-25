@@ -1,11 +1,13 @@
+import axios from "axios";
+
 import {
   AUTH_REQUEST,
   AUTH_ERROR,
   AUTH_SUCCESS,
   AUTH_LOGOUT
 } from "../actions/auth";
-import axios from "axios";
 import router from "../../router";
+import { SERVER_API_URL } from "../../../environment";
 
 const state = {
   token: localStorage.getItem("stack.user-token") || "",
@@ -16,7 +18,7 @@ const state = {
   statusCode: ""
 };
 
-const baseURL = "https://stdstack.appspot.com/";
+const baseURL = SERVER_API_URL || "https://stdstack.appspot.com/";
 
 const getters = {
   isAuthenticated: state => !!state.token,
