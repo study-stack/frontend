@@ -1,4 +1,5 @@
 export const GET_COURSES = "GET_COURSES";
+export const GET_COURSE_REQUEST = "GET_COURSE_REQUEST";
 export const GET_COURSE = "GET_COURSE";
 export const COURSE_REQUEST = "COURSE_REQUEST";
 export const COURSE_SUCCESS = "COURSE_SUCCESS";
