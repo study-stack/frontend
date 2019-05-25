@@ -80,7 +80,7 @@ const actions = {
   [NEXT_COURSE_STEP]: ({ dispatch, commit }, id) => {
     return new Promise((resolve, reject) => {
       axios({
-        url: `/courses/api/courses/${id}/next`,
+        url: `/api/courses/${id}/next`,
         baseURL: baseURL,
         method: "POST"
       })
@@ -105,7 +105,7 @@ const actions = {
   [GET_COURSE_STEP]: ({ dispatch, commit }, id) => {
     return new Promise((resolve, reject) => {
       axios({
-        url: `/courses/api/courses/${id}`,
+        url: `/api/courses/${id}`,
         baseURL: baseURL,
         method: "POST"
       })
@@ -131,7 +131,7 @@ const actions = {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
       axios({
-        url: `/courses/api/courses`,
+        url: `/api/courses`,
         baseURL: baseURL,
         method: "GET"
       })
@@ -155,7 +155,7 @@ const actions = {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
       axios({
-        url: `/courses/api/courses/${id}`,
+        url: `/api/courses/${id}`,
         baseURL: baseURL,
         method: "GET"
       })
@@ -183,7 +183,7 @@ const actions = {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
       axios({
-        url: `/courses/api/courses/${id}/submit?input=${answer}/`,
+        url: `/api/courses/${id}/submit?input=${answer}/`,
         baseURL: baseURL,
         method: "GET"
       })
