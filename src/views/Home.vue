@@ -4,6 +4,7 @@
     <steps-screen />
     <getdocs-screen />
     <rates-screen />
+    <articles-screen />
     <callstartuse-screen />
   </home-landing>
 </template>
@@ -14,6 +15,7 @@ import StepsScreen from "@/components/core/Home/StepsScreen";
 import GetdocsScreen from "@/components/core/Home/GetdocsScreen";
 import RatesScreen from "@/components/core/Home/RatesScreen";
 import CallstartuseScreen from "@/components/core/Home/CallstartuseScreen";
+import ArticlesScreen from "@/components/core/Home/ArticlesScreen";
 export default {
   components: {
     HomeLanding,
@@ -22,6 +24,7 @@ export default {
     GetdocsScreen,
     RatesScreen,
     CallstartuseScreen,
+    ArticlesScreen,
   }
 };
 </script>
