@@ -71,16 +71,12 @@ export default {
           username: this.username,
           password: this.password
         })
-        .then(data => {
+        .then(() => {
           if (query.redirect) {
             this.$router.push({ path: query.redirect });
             return;
           }
           this.$router.push({ path: "/profile" });
-        })
-        .catch(err => {
-          if (err.response.status === 400) {
-          }
         });
     }
   }

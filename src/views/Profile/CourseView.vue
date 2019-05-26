@@ -51,7 +51,7 @@ export default {
       });
       if (!this.course) {
         this.$store.dispatch(GET_COURSE, this.id).then(() => {
-          this.$store.dispatch(GET_COURSE_STEP, this.id).then(res => {
+          this.$store.dispatch(GET_COURSE_STEP, this.id).then(() => {
             this.$router.push(
               `/profile/courses/${this.id}/page/${this.courseStep.id}`
             );
@@ -59,7 +59,7 @@ export default {
         });
         return;
       }
-      this.$store.dispatch(GET_COURSE_STEP, this.id).then(res => {
+      this.$store.dispatch(GET_COURSE_STEP, this.id).then(() => {
         this.$router.push(
           `/profile/courses/${this.id}/page/${this.courseStep.id}`
         );
