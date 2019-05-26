@@ -126,7 +126,7 @@ export default {
         this.$emit("updatePage", data);
       } else {
         this.$store
-          .dispatch(PUSH_COURSE_ANSWER, { id: this.id, answer: this.answer })
+          .dispatch(PUSH_COURSE_ANSWER, { id: this.course.id, answer: this.answer })
           .then(res => {
             if (res.status === 200) {
               this.answer = null;

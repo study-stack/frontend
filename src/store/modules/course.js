@@ -139,9 +139,9 @@ const actions = {
     commit(COURSE_REQUEST);
     return new Promise((resolve, reject) => {
       axios({
-        url: `/api/courses/${id}/submit?input=${answer}/`,
+        url: `/api/courses/${id}/submit?input=${answer}`,
         baseURL: baseURL,
-        method: "GET"
+        method: "POST"
       })
         .then(res => {
           if (res.status === 200) {
